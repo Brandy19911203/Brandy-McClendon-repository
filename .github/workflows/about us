@@ -1,0 +1,39 @@
+from django.shortcuts import render
+
+def about_us(request):
+    return render(request, 'about_us.html')
+ About Us
+
+<body>
+    About Us
+    This is the about us page for our Django application.
+
+    
+</body>
+
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('about-us/', views.about_us, name='about_us'),
+    # Other URL patterns...
+]
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('your_app_name.urls')),
+    # Other URL patterns...
+]
+python manage.py runserver
+def about_us(request):
+    context = {
+        'team_members': ['Alice', 'Bob', 'Charlie'],
+    }
+    return render(request, 'about_us.html', context)
+<ul>
+    {% for member in team_members %}
+        <li>{{ member }}</li>
+    {% endfor %}
+</ul>
